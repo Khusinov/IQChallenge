@@ -8,7 +8,7 @@ import uz.khusinov.iqchallenge.R
 import uz.khusinov.iqchallenge.databinding.FragmentRegisterBinding
 import uz.khusinov.iqchallenge.utills.viewBinding
 
-class RegisterFragment : Fragment() {
+class RegisterFragment : Fragment(R.layout.fragment_register) {
     private val binding by viewBinding { FragmentRegisterBinding.bind(it) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
