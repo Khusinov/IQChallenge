@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">IQ Challenge</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="beginner">Beginner</string>
+    <string name="beginner_age">Age: 5–10</string>
+    <string name="middle">Middle</string>
+    <string name="middle_age">Age: 11–20</string>
+    <string name="pro">Pro</string>
+    <string name="pro_age">Age: 21+</string>
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="phone">Phone</string>
 </resources>
