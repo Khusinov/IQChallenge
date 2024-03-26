@@ -5,4 +5,7 @@
     <color name="beginner">#CE65FF</color>
     <color name="middle">#6590FF</color>
     <color name="pro">#FF6581</color>
+    <color name="gold">#FFD707</color>
+    <color name="silver">#B7B7B7</color>
+    <color name="bronze">#EBA900</color>
 </resources>
