@@ -14,23 +14,22 @@
         android:orientation="horizontal"
         android:paddingHorizontal="16dp"
         android:paddingTop="16dp">
+
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_back"
-            android:tint="@color/black"/>
+            android:tint="@color/black"
+            app:srcCompat="@drawable/ic_back" />
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:fontFamily="@font/righteous"
-            android:textColor="@color/black"
             android:layout_gravity="center"
-            android:text="@string/rating_list"/>
+            android:fontFamily="@font/righteous"
+            android:text="@string/rating_list"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
     </FrameLayout>
-
-
 
     <com.google.android.material.imageview.ShapeableImageView
         android:layout_width="match_parent"
@@ -46,13 +45,12 @@
         android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="10dp"
+            android:id="@+id/rating_recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/rating_item"
+            android:layout_marginTop="10dp"
             android:paddingBottom="10dp"
-            android:id="@+id/rating_recycler"/>
-
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/rating_item" />
     </FrameLayout>
 </LinearLayout>
