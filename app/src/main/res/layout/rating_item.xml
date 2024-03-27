@@ -10,6 +10,7 @@
     android:paddingVertical="10dp">
 
     <com.google.android.material.imageview.ShapeableImageView
+        android:visibility="gone"
         android:id="@+id/medal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,7 +23,7 @@
         android:layout_marginHorizontal="10dp"
         android:layout_weight="1"
         android:fontFamily="@font/righteous"
-        android:textColor="@color/gold"
+        android:textColor="@color/black"
         android:textSize="18sp"
         tools:text="1. Bekdiyor" />
 
@@ -32,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
         android:fontFamily="@font/righteous"
-        android:textColor="@color/gold"
+        android:textColor="@color/black"
         android:textSize="18sp"
         tools:text="278" />
 </LinearLayout>

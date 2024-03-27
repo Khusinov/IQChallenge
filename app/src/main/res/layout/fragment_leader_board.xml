@@ -8,18 +8,12 @@
     android:orientation="vertical"
     tools:context=".ui.LeaderBoardFragment">
 
-    <FrameLayout
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingHorizontal="16dp"
-        android:paddingTop="16dp">
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tint="@color/black"
-            app:srcCompat="@drawable/ic_back" />
+        app:navigationIcon="@drawable/ic_back">
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
@@ -29,7 +23,7 @@
             android:text="@string/rating_list"
             android:textColor="@color/black"
             android:textSize="20sp" />
-    </FrameLayout>
+    </com.google.android.material.appbar.MaterialToolbar>
 
     <com.google.android.material.imageview.ShapeableImageView
         android:layout_width="match_parent"
