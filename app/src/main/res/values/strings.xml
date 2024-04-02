@@ -8,8 +8,8 @@
     <string name="middle_age">Age: 11–20</string>
     <string name="pro">Pro</string>
     <string name="pro_age">Age: 21+</string>
-    <string name="login">Login</string>
-    <string name="username">Username</string>
+    <string name="login">Ismingiz</string>
+    <string name="username">Ism</string>
     <string name="password">Password</string>
     <string name="register">Register</string>
     <string name="phone">Phone</string>
