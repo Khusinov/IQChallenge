@@ -20,13 +20,27 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        loadData()
         setupUI()
     }
 
+
+
     private fun setupUI() = with(binding) {
-        result.setOnClickListener {
+        finish.setOnClickListener {
             findNavController().navigate(R.id.action_quizFragment_to_resultFragment)
         }
+
+        leftGroup.setOnCheckedChangeListener { group, checkedId ->
+            rightGroup.clearCheck()
+        }
+
+        rightGroup.setOnCheckedChangeListener { group, checkedId ->
+            leftGroup.clearCheck()
+        }
+    }
+
+    private fun loadData() {
         val quizzes = mutableListOf<Quiz>()
 
         db.collection("quiz")
@@ -55,7 +69,5 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
             .addOnFailureListener { e ->
                 Log.w("TAG", "Error adding document", e)
             }
-
-
     }
 }
