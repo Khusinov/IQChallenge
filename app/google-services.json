@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "419292244331",
+    "project_id": "iqchallange-ab6d8",
+    "storage_bucket": "iqchallange-ab6d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:419292244331:android:6e7c7047e8908d4685c42e",
+        "android_client_info": {
+          "package_name": "uz.khusinov.iqchallenge"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9SxxBS2YA74IG_PILTUFtN9RkypAPKWo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
