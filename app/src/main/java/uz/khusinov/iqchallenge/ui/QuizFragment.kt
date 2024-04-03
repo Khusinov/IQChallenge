@@ -21,6 +21,8 @@ import kotlin.math.abs
 class QuizFragment : Fragment(R.layout.fragment_quiz) {
     private val binding by viewBinding { FragmentQuizBinding.bind(it) }
     private lateinit var timer: CountDownTimer
+    private val quizzes = mutableListOf<Quiz>()
+    private var currentQuestion = 1
 
     val db = Firebase.firestore
 
@@ -82,7 +84,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
 
 
     private fun loadData() {
-        val quizzes = mutableListOf<Quiz>()
+
 
         db.collection("quiz")
             .get()
@@ -115,5 +117,22 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
     override fun onDestroyView() {
         super.onDestroyView()
         timer.cancel()
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun setQuestion() = with(binding){
+        val data = quizzes[currentQuestion-1]
+        questionCount.text = "$currentQuestion/${quizzes.size}"
+        question.text = data.question
+        answerA.text = data.answer1
+
+    }
+
+    private fun clearAnswer() {
+
+    }
+
+    private fun setAnswer() {
+
     }
 }
