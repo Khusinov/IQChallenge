@@ -1,19 +1,26 @@
 package uz.khusinov.iqchallenge.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.robinhood.ticker.TickerView
+import kotlinx.coroutines.delay
 import uz.khusinov.iqchallenge.R
 import uz.khusinov.iqchallenge.databinding.FragmentQuizBinding
 import uz.khusinov.iqchallenge.models.Quiz
 import uz.khusinov.iqchallenge.utills.viewBinding
+import java.text.SimpleDateFormat
+import kotlin.math.abs
 
 class QuizFragment : Fragment(R.layout.fragment_quiz) {
     private val binding by viewBinding { FragmentQuizBinding.bind(it) }
+    private lateinit var timer: CountDownTimer
 
     val db = Firebase.firestore
 
@@ -21,24 +28,58 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loadData()
+        startTimer()
         setupUI()
     }
 
+    private fun startTimer() {
+        timer = object : CountDownTimer(50000, 1000) {
+            override fun onTick(p1: Long) {
+                val p0 = p1 / 1000
+               binding.ticker.text =
+                    String.format(
+                        "%02d:%02d",
+                        (p0 - (((p0 / 60) / 60) / 24) * 24 * 60 * 60 - (((p0 / 60) / 60) % 24) * 60 * 60) / 60,
+                        p0 % 60
+                    )
+            }
 
+            override fun onFinish() {
+                findNavController().navigate(R.id.action_quizFragment_to_resultFragment)
+            }
+        }.start()
+    }
 
     private fun setupUI() = with(binding) {
         finish.setOnClickListener {
             findNavController().navigate(R.id.action_quizFragment_to_resultFragment)
         }
 
-        leftGroup.setOnCheckedChangeListener { group, checkedId ->
+        answerA.setOnClickListener {
             rightGroup.clearCheck()
         }
 
-        rightGroup.setOnCheckedChangeListener { group, checkedId ->
+        answerC.setOnClickListener {
+            rightGroup.clearCheck()
+        }
+
+        answerE.setOnClickListener {
+            rightGroup.clearCheck()
+        }
+
+        answerB.setOnClickListener {
+            leftGroup.clearCheck()
+        }
+
+        answerD.setOnClickListener {
+            leftGroup.clearCheck()
+        }
+
+        answerF.setOnClickListener {
             leftGroup.clearCheck()
         }
     }
+
 
     private fun loadData() {
         val quizzes = mutableListOf<Quiz>()
@@ -69,5 +110,10 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
             .addOnFailureListener { e ->
                 Log.w("TAG", "Error adding document", e)
             }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        timer.cancel()
     }
 }

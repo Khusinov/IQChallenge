@@ -5,21 +5,19 @@ import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.navigation.fragment.findNavController
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.firestore.firestore
 import nl.dionsegijn.konfetti.core.Party
 import nl.dionsegijn.konfetti.core.Position
 import nl.dionsegijn.konfetti.core.emitter.Emitter
 import uz.khusinov.iqchallenge.R
 import uz.khusinov.iqchallenge.databinding.FragmentResultBinding
-import uz.khusinov.iqchallenge.models.Quiz
 import uz.khusinov.iqchallenge.models.Rating
 import uz.khusinov.iqchallenge.utills.viewBinding
 import java.util.concurrent.TimeUnit
 
 class ResultFragment : Fragment(R.layout.fragment_result) {
     private val binding by viewBinding { FragmentResultBinding.bind(it) }
-    val db = Firebase.firestore
+    val db = com.google.firebase.Firebase.firestore
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
