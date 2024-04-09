@@ -41,22 +41,29 @@ class LeaderBoardFragment : Fragment(R.layout.fragment_leader_board) {
                     )
                     ratings.add(rating)
                 }
-                ratings.sortByDescending { it.rate }
 
-                dataList.clear()
-                var isFound = false
-                ratings.forEach {
-                    dataList.forEach { bit ->
-                        if (it.username == bit.username) {
-                            isFound = true
-                        }
-                    }
-                    if (!isFound) {
-                        dataList.add(it)
-                    }
-                }
+                val userGroups = ratings.groupBy { it.id }
 
-                adapter.submitList(dataList)
+                val userListWithMaxRate = userGroups.map { (_, userList) ->
+                    userList.maxByOrNull { it.rate }
+                }.filterNotNull()
+
+//                ratings.sortByDescending { it.rate }
+//
+//                dataList.clear()
+//                var isFound = false
+//                ratings.forEach {
+//                    dataList.forEach { bit ->
+//                        if (it.username == bit.username) {
+//                            isFound = true
+//                        }
+//                    }
+//                    if (!isFound) {
+//                        dataList.add(it)
+//                    }
+//                }
+
+                adapter.submitList(userListWithMaxRate.reversed())
             }
             .addOnFailureListener { e ->
                 Log.w("TAG", "Error adding document", e)
