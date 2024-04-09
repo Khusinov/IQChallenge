@@ -30,4 +30,10 @@ object Pref {
         set(value) {
             pref.edit().putString("id", value).apply()
         }
+
+    var level: String
+        get() = pref.getString("level", "")!!
+        set(value) {
+            pref.edit().putString("level", value).apply()
+        }
 }

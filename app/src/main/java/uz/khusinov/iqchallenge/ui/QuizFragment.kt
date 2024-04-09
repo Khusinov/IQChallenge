@@ -13,6 +13,7 @@ import com.google.firebase.ktx.Firebase
 import uz.khusinov.iqchallenge.R
 import uz.khusinov.iqchallenge.databinding.FragmentQuizBinding
 import uz.khusinov.iqchallenge.models.Quiz
+import uz.khusinov.iqchallenge.utills.Pref
 import uz.khusinov.iqchallenge.utills.viewBinding
 
 class QuizFragment : Fragment(R.layout.fragment_quiz) {
@@ -105,7 +106,8 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
                 selectedAnswer = ""
 
                 currentQuestion++
-                setQuestion()
+                if (quizzes.isNotEmpty())
+                    setQuestion()
             } else {
                 val bundle = Bundle()
                 bundle.putInt("correctAnswers", correctAnswers)
@@ -136,7 +138,8 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
                         i.data["answer6"].toString(),
                         i.data["correctAnswer"].toString()
                     )
-                    quizzes.add(quiz)
+                    if (Pref.level == quiz.level.toString())
+                        quizzes.add(quiz)
                 }
                 currentQuestion = 1
                 setQuestion()

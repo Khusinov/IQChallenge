@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import uz.khusinov.iqchallenge.R
 import uz.khusinov.iqchallenge.databinding.FragmentHomeBinding
+import uz.khusinov.iqchallenge.utills.Pref
 import uz.khusinov.iqchallenge.utills.viewBinding
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
@@ -22,14 +23,17 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
 
         beginner.setOnClickListener {
+            Pref.level = "1"
             findNavController().navigate(R.id.action_homeFragment_to_quizFragment)
         }
 
         middle.setOnClickListener {
+            Pref.level = "2"
             findNavController().navigate(R.id.action_homeFragment_to_quizFragment)
         }
 
         pro.setOnClickListener {
+            Pref.level = "3"
             findNavController().navigate(R.id.action_homeFragment_to_quizFragment)
         }
     }
