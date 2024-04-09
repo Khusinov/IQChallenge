@@ -59,5 +59,5 @@ dependencies {
     //konfetti lib
     implementation ("nl.dionsegijn:konfetti-xml:2.0.4")
     //ticker
-    implementation ("com.robinhood.ticker:ticker:2.0.4")
+    implementation ("com.robinhood.ticker:ticker:2.0.3")
 }

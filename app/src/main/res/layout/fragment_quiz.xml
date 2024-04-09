@@ -94,7 +94,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:text="As monomer liquid absorbs a polymer powder, the product formed at the tip of the brush is referred to as a:"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -240,7 +239,8 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/shape_20"
-                android:backgroundTint="@color/middle">
+                android:backgroundTint="@color/middle"
+                android:visibility="gone">
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:layout_width="wrap_content"
@@ -257,8 +257,8 @@
 
             <FrameLayout
                 android:id="@+id/next"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
                 android:background="@drawable/shape_20"
                 android:backgroundTint="@color/middle">
 

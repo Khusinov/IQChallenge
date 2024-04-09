@@ -18,4 +18,16 @@ object Pref {
         set(value) {
             pref.edit().putBoolean("login", value).apply()
         }
+
+    var name: String
+        get() = pref.getString("name", "")!!
+        set(value) {
+            pref.edit().putString("name", value).apply()
+        }
+
+    var id: String
+        get() = pref.getString("id", "")!!
+        set(value) {
+            pref.edit().putString("id", value).apply()
+        }
 }

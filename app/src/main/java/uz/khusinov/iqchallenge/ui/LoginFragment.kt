@@ -12,6 +12,7 @@ import com.google.firebase.ktx.Firebase
 import uz.khusinov.iqchallenge.R
 import uz.khusinov.iqchallenge.databinding.FragmentLoginBinding
 import uz.khusinov.iqchallenge.models.User
+import uz.khusinov.iqchallenge.utills.Pref
 import uz.khusinov.iqchallenge.utills.viewBinding
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
@@ -39,8 +40,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             db.collection("user")
                 .add(user)
                 .addOnSuccessListener { documentReference ->
-                    Log.d("TAG", "DocumentSnapshot added with ID: ${documentReference.id}")
-
+                    Pref.isLogin = true
+                    Pref.name = username1!!
                 }
                 .addOnFailureListener { e ->
                     Log.w("TAG", "Error adding document", e)

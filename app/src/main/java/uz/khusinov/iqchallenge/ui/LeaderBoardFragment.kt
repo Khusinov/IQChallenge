@@ -1,9 +1,11 @@
 package uz.khusinov.iqchallenge.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.firestore.firestore
 import uz.khusinov.iqchallenge.R
 import uz.khusinov.iqchallenge.adapters.RatingAdapter
 import uz.khusinov.iqchallenge.databinding.FragmentLeaderBoardBinding
@@ -14,6 +16,8 @@ class LeaderBoardFragment : Fragment(R.layout.fragment_leader_board) {
     private val binding by viewBinding { FragmentLeaderBoardBinding.bind(it) }
     private val adapter by lazy { RatingAdapter() }
     private var dataList = mutableListOf<Rating>()
+    val db = com.google.firebase.Firebase.firestore
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -22,14 +26,28 @@ class LeaderBoardFragment : Fragment(R.layout.fragment_leader_board) {
     }
 
     private fun loadData() {
-        dataList.clear()
-        dataList.add(Rating("1", "Bekdiyor", 278))
-        dataList.add(Rating("2", "Shaxriyor", 269))
-        dataList.add(Rating("3", "Rustam", 255))
-        dataList.add(Rating("4", "Asad", 241))
-        dataList.add(Rating("5", "Lazizbek", 226))
-        dataList.add(Rating("6", "Elmurod", 217))
-        adapter.submitList(dataList)
+
+        val ratings = mutableListOf<Rating>()
+
+        db.collection("rating")
+            .get()
+            .addOnSuccessListener { result ->
+                ratings.clear()
+                for (i in result) {
+                    val rating = Rating(
+                        i.data["id"].toString(),
+                        i.data["username"].toString(),
+                        i.data["rate"].toString().toInt(),
+                    )
+                    ratings.add(rating)
+                }
+                ratings.groupBy { it.id }
+                    .forEach { (_, value) -> value.sortedByDescending { it.rate } }
+                adapter.submitList(ratings)
+            }
+            .addOnFailureListener { e ->
+                Log.w("TAG", "Error adding document", e)
+            }
     }
 
     private fun setupUI() = with(binding) {

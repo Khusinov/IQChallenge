@@ -1,5 +1,6 @@
 package uz.khusinov.iqchallenge.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -12,6 +13,7 @@ import nl.dionsegijn.konfetti.core.emitter.Emitter
 import uz.khusinov.iqchallenge.R
 import uz.khusinov.iqchallenge.databinding.FragmentResultBinding
 import uz.khusinov.iqchallenge.models.Rating
+import uz.khusinov.iqchallenge.utills.Pref
 import uz.khusinov.iqchallenge.utills.viewBinding
 import java.util.concurrent.TimeUnit
 
@@ -24,26 +26,29 @@ class ResultFragment : Fragment(R.layout.fragment_result) {
         setupUI()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setupUI() = with(binding) {
 
-        val ratings = mutableListOf<Rating>()
+        val correctAnswers = arguments?.getInt("correctAnswers")
+        val time = arguments?.getString("time")
 
-        db.collection("rating")
-            .get()
-            .addOnSuccessListener { result ->
-                ratings.clear()
-                for (i in result) {
-                    val rating = Rating(
-                        i.data["id"].toString(),
-                        i.data["username"].toString(),
-                        i.data["rate"].toString().toInt(),
-                    )
-                    ratings.add(rating)
+        if (correctAnswers != null && time != null) {
+            val rate = correctAnswers * 4
+            val timeSpend = (40*60*1000 - time.toLong())/1000
+
+            iq.text = rate.toString()
+            binding.time.text = "$timeSpend sec"
+
+            val rating = Rating(Pref.id, Pref.name, rate)
+            db.collection("rating")
+                .add(rating)
+                .addOnSuccessListener { documentReference ->
+                    Log.d("TAG", "DocumentSnapshot added with ID: ${documentReference.id}")
                 }
-            }
-            .addOnFailureListener { e ->
-                Log.w("TAG", "Error adding document", e)
-            }
+                .addOnFailureListener { e ->
+                    Log.w("TAG", "Error adding document", e)
+                }
+        }
 
         leaderboard.setOnClickListener {
             findNavController().navigate(R.id.action_resultFragment_to_leaderBoardFragment)
