@@ -41,9 +41,22 @@ class LeaderBoardFragment : Fragment(R.layout.fragment_leader_board) {
                     )
                     ratings.add(rating)
                 }
-                ratings.groupBy { it.id }
-                    .forEach { (_, value) -> value.sortedByDescending { it.rate } }
-                adapter.submitList(ratings)
+                ratings.sortByDescending { it.rate }
+
+                dataList.clear()
+                var isFound = false
+                ratings.forEach {
+                    dataList.forEach { bit ->
+                        if (it.username == bit.username) {
+                            isFound = true
+                        }
+                    }
+                    if (!isFound) {
+                        dataList.add(it)
+                    }
+                }
+
+                adapter.submitList(dataList)
             }
             .addOnFailureListener { e ->
                 Log.w("TAG", "Error adding document", e)
