@@ -12,7 +12,6 @@ import nl.dionsegijn.konfetti.core.Position
 import nl.dionsegijn.konfetti.core.emitter.Emitter
 import uz.khusinov.iqchallenge.R
 import uz.khusinov.iqchallenge.databinding.FragmentResultBinding
-import uz.khusinov.iqchallenge.models.Quiz
 import uz.khusinov.iqchallenge.models.Rating
 import uz.khusinov.iqchallenge.utills.viewBinding
 import java.util.concurrent.TimeUnit
@@ -42,9 +41,7 @@ class ResultFragment : Fragment(R.layout.fragment_result) {
                     )
                     ratings.add(rating)
                 }
-                Log.d("TAG", "setupUI: tayyor ${ratings.size} ")
             }
-
             .addOnFailureListener { e ->
                 Log.w("TAG", "Error adding document", e)
             }
