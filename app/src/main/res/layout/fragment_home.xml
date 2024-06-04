@@ -15,6 +15,7 @@
         android:padding="20dp">
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/logo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -168,7 +169,13 @@
                 android:layout_alignParentEnd="true"
                 app:srcCompat="@drawable/im_pro" />
         </RelativeLayout>
+
+
+
+
     </com.google.android.material.card.MaterialCardView>
+
+
 
 
 </LinearLayout>

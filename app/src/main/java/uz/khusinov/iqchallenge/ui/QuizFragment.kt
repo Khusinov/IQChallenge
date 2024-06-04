@@ -8,8 +8,14 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.squareup.picasso.Picasso
 import uz.khusinov.iqchallenge.R
 import uz.khusinov.iqchallenge.databinding.FragmentQuizBinding
 import uz.khusinov.iqchallenge.models.Quiz
@@ -33,6 +39,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
         loadData()
         startTimer()
         setupUI()
+        admob()
     }
 
     private fun startTimer() {
@@ -51,6 +58,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
             override fun onFinish() {
                 val bundle = Bundle()
                 bundle.putInt("correctAnswers", correctAnswers)
+                bundle.putInt("allAnswers", quizzes.size)
                 bundle.putString("time", testTime.toString())
                 findNavController().navigate(R.id.action_quizFragment_to_resultFragment)
             }
@@ -109,8 +117,14 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
                 if (quizzes.isNotEmpty())
                     setQuestion()
             } else {
+
+                if (quizzes[currentQuestion - 1].correctAnswer == selectedAnswer) {
+                    correctAnswers++
+                }
+
                 val bundle = Bundle()
                 bundle.putInt("correctAnswers", correctAnswers)
+                bundle.putInt("allAnswers", quizzes.size)
                 bundle.putString("time", testTime.toString())
                 findNavController().navigate(R.id.action_quizFragment_to_resultFragment, bundle)
             }
@@ -138,8 +152,17 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
                         i.data["answer6"].toString(),
                         i.data["correctAnswer"].toString()
                     )
-                    if (Pref.level == quiz.level.toString())
-                        quizzes.add(quiz)
+                    if (Pref.level == "1")
+                        if (quiz.level.toString() == "1" || quiz.level.toString() == "2")
+                            quizzes.add(quiz)
+
+                    if (Pref.level == "2")
+                        if (quiz.level.toString() == "2" || quiz.level.toString() == "3")
+                            quizzes.add(quiz)
+
+                    if (Pref.level == "3")
+                        if (quiz.level.toString() == "3" || quiz.level.toString() == "4")
+                            quizzes.add(quiz)
                 }
                 currentQuestion = 1
                 setQuestion()
@@ -161,6 +184,19 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
         val data = quizzes[currentQuestion - 1]
         leftGroup.clearCheck()
         rightGroup.clearCheck()
+        Log.d("TAG", "setQuestion: ${data.questionImg} ")
+        Log.d("TAG", "setQuestion: ${data.question} ")
+        Log.d("TAG", "setQuestion: ${data.id} ")
+        Log.d("TAG", "setQuestion: ${data.level} ")
+
+
+        if (data.questionImg != null) {
+            if (!data.questionImg.isNullOrEmpty()) {
+                questionImage.visibility = View.VISIBLE
+                Picasso.get().load(data.questionImg).into(questionImage)
+            } else questionImage.visibility = View.GONE
+        } else questionImage.visibility = View.GONE
+
         questionCount.text = "$currentQuestion/${quizzes.size}"
         question.text = data.question
         answerA.text = data.answer1
@@ -176,6 +212,42 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
     }
 
     private fun setAnswer() {
+
+    }
+
+
+    private fun admob() {
+        MobileAds.initialize(requireContext()) {}
+        val mAdView: AdView = binding.adView
+
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
+
+        mAdView.adListener = object : AdListener() {
+            override fun onAdClicked() {
+                Log.d("TAG", "onAdClicked: ")
+            }
+
+            override fun onAdClosed() {
+                Log.d("TAG", "onAdClosed: ")
+            }
+
+            override fun onAdFailedToLoad(adError: LoadAdError) {
+                Log.d("TAG", "onAdFailedToLoad: ")
+            }
+
+            override fun onAdImpression() {
+                Log.d("TAG", "onAdImpression: ")
+            }
+
+            override fun onAdLoaded() {
+                Log.d("TAG", "onAdLoaded: ")
+            }
+
+            override fun onAdOpened() {
+                Log.d("TAG", "onAdOpened: ")
+            }
+        }
 
     }
 }

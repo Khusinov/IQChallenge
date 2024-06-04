@@ -30,10 +30,11 @@ class ResultFragment : Fragment(R.layout.fragment_result) {
     private fun setupUI() = with(binding) {
 
         val correctAnswers = arguments?.getInt("correctAnswers")
+        val allAnswers = arguments?.getInt("allAnswers")
         val time = arguments?.getString("time")
 
         if (correctAnswers != null && time != null) {
-            val rate = correctAnswers * 4
+            val rate = 160 * correctAnswers / allAnswers!!
             val timeSpend = (40*60*1000 - time.toLong())/1000
 
             iq.text = rate.toString()

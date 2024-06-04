@@ -42,6 +42,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 .addOnSuccessListener { documentReference ->
                     Pref.isLogin = true
                     Pref.name = username1!!
+                    Pref.documentId = documentReference.id
                 }
                 .addOnFailureListener { e ->
                     Log.w("TAG", "Error adding document", e)

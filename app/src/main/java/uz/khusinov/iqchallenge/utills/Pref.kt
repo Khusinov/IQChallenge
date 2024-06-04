@@ -31,6 +31,12 @@ object Pref {
             pref.edit().putString("id", value).apply()
         }
 
+    var documentId: String
+        get() = pref.getString("documentId", "")!!
+        set(value) {
+            pref.edit().putString("documentId", value).apply()
+        }
+
     var level: String
         get() = pref.getString("level", "")!!
         set(value) {

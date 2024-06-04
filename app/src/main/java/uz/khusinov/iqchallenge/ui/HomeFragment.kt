@@ -36,5 +36,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             Pref.level = "3"
             findNavController().navigate(R.id.action_homeFragment_to_quizFragment)
         }
+
+        logo.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
+        }
     }
 }

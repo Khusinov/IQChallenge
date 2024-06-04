@@ -60,4 +60,10 @@ dependencies {
     implementation ("nl.dionsegijn:konfetti-xml:2.0.4")
     //ticker
     implementation ("com.robinhood.ticker:ticker:2.0.3")
+
+    implementation ("com.squareup.picasso:picasso:2.71828")
+
+    implementation ("com.google.android.gms:play-services-ads:21.5.0")
+
+
 }
