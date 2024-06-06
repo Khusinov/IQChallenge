@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import uz.khusinov.iqchallenge.R
@@ -30,7 +31,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 Pref.isLogin = false
                 Pref.name = ""
                 Pref.id = ""
-                requireActivity().finish()
+                findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
             }
 
             deleteAccount.setOnClickListener {
@@ -43,7 +44,8 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                     Pref.isLogin = false
                     Pref.name = ""
                     Pref.id = ""
-                    requireActivity().finish()
+
+                    findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
 
                 }.addOnFailureListener {
                     Log.d("TAG", "setupUI: ")
