@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="uz.khusinov.iqchallenge.ui.SplashFragment"
+        android:name="uz.khusinovs.iqchallenge.ui.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -23,7 +23,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="uz.khusinov.iqchallenge.ui.LoginFragment"
+        android:name="uz.khusinovs.iqchallenge.ui.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="uz.khusinov.iqchallenge.ui.HomeFragment"
+        android:name="uz.khusinovs.iqchallenge.ui.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -52,12 +52,12 @@
     </fragment>
     <fragment
         android:id="@+id/leaderBoardFragment"
-        android:name="uz.khusinov.iqchallenge.ui.LeaderBoardFragment"
+        android:name="uz.khusinovs.iqchallenge.ui.LeaderBoardFragment"
         android:label="fragment_leader_board"
         tools:layout="@layout/fragment_leader_board" />
     <fragment
         android:id="@+id/quizFragment"
-        android:name="uz.khusinov.iqchallenge.ui.QuizFragment"
+        android:name="uz.khusinovs.iqchallenge.ui.QuizFragment"
         android:label="fragment_quiz"
         tools:layout="@layout/fragment_quiz" >
         <action
@@ -71,7 +71,7 @@
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
-        android:name="uz.khusinov.iqchallenge.ui.ResultFragment"
+        android:name="uz.khusinovs.iqchallenge.ui.ResultFragment"
         android:label="fragment_result"
         tools:layout="@layout/fragment_result" >
         <action
@@ -86,7 +86,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="uz.khusinov.iqchallenge.ui.RegisterFragment"
+        android:name="uz.khusinovs.iqchallenge.ui.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
@@ -97,7 +97,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="uz.khusinov.iqchallenge.ui.ProfileFragment"
+        android:name="uz.khusinovs.iqchallenge.ui.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action

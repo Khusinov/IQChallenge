@@ -1,4 +1,4 @@
-package uz.khusinov.iqchallenge.ui
+package uz.khusinovs.iqchallenge.ui
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -9,11 +9,11 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import uz.khusinov.iqchallenge.R
-import uz.khusinov.iqchallenge.databinding.FragmentLoginBinding
-import uz.khusinov.iqchallenge.models.User
-import uz.khusinov.iqchallenge.utills.Pref
-import uz.khusinov.iqchallenge.utills.viewBinding
+import uz.khusinovs.iqchallenge.R
+import uz.khusinovs.iqchallenge.databinding.FragmentLoginBinding
+import uz.khusinovs.iqchallenge.models.User
+import uz.khusinovs.iqchallenge.utills.Pref
+import uz.khusinovs.iqchallenge.utills.viewBinding
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
     private val binding by viewBinding { FragmentLoginBinding.bind(it) }
@@ -35,6 +35,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 username1 = username.text.toString()
                 deviceId = deviceId ?: "null"
             }
+
+            Pref.id = "$deviceId"
 
             val user = User(deviceId!!, username1!!)
             db.collection("user")

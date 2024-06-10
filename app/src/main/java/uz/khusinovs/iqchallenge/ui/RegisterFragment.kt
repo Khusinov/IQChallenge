@@ -1,12 +1,12 @@
-package uz.khusinov.iqchallenge.ui
+package uz.khusinovs.iqchallenge.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.navigation.fragment.findNavController
-import uz.khusinov.iqchallenge.R
-import uz.khusinov.iqchallenge.databinding.FragmentRegisterBinding
-import uz.khusinov.iqchallenge.utills.viewBinding
+import uz.khusinovs.iqchallenge.R
+import uz.khusinovs.iqchallenge.databinding.FragmentRegisterBinding
+import uz.khusinovs.iqchallenge.utills.viewBinding
 
 class RegisterFragment : Fragment(R.layout.fragment_register) {
     private val binding by viewBinding { FragmentRegisterBinding.bind(it) }

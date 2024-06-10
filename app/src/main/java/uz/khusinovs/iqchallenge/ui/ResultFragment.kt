@@ -1,4 +1,4 @@
-package uz.khusinov.iqchallenge.ui
+package uz.khusinovs.iqchallenge.ui
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,11 +10,11 @@ import com.google.firebase.firestore.firestore
 import nl.dionsegijn.konfetti.core.Party
 import nl.dionsegijn.konfetti.core.Position
 import nl.dionsegijn.konfetti.core.emitter.Emitter
-import uz.khusinov.iqchallenge.R
-import uz.khusinov.iqchallenge.databinding.FragmentResultBinding
-import uz.khusinov.iqchallenge.models.Rating
-import uz.khusinov.iqchallenge.utills.Pref
-import uz.khusinov.iqchallenge.utills.viewBinding
+import uz.khusinovs.iqchallenge.R
+import uz.khusinovs.iqchallenge.databinding.FragmentResultBinding
+import uz.khusinovs.iqchallenge.models.Rating
+import uz.khusinovs.iqchallenge.utills.Pref
+import uz.khusinovs.iqchallenge.utills.viewBinding
 import java.util.concurrent.TimeUnit
 
 class ResultFragment : Fragment(R.layout.fragment_result) {

@@ -1,4 +1,4 @@
-package uz.khusinov.iqchallenge.adapters
+package uz.khusinovs.iqchallenge.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -7,9 +7,9 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import uz.khusinov.iqchallenge.R
-import uz.khusinov.iqchallenge.databinding.RatingItemBinding
-import uz.khusinov.iqchallenge.models.Rating
+import uz.khusinovs.iqchallenge.R
+import uz.khusinovs.iqchallenge.databinding.RatingItemBinding
+import uz.khusinovs.iqchallenge.models.Rating
 
 
 class RatingAdapter  : RecyclerView.Adapter<RatingAdapter.ViewHolder>() {

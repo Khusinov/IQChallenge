@@ -1,4 +1,4 @@
-package uz.khusinov.iqchallenge.ui
+package uz.khusinovs.iqchallenge.ui
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -16,11 +16,11 @@ import com.google.android.gms.ads.MobileAds
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
-import uz.khusinov.iqchallenge.R
-import uz.khusinov.iqchallenge.databinding.FragmentQuizBinding
-import uz.khusinov.iqchallenge.models.Quiz
-import uz.khusinov.iqchallenge.utills.Pref
-import uz.khusinov.iqchallenge.utills.viewBinding
+import uz.khusinovs.iqchallenge.R
+import uz.khusinovs.iqchallenge.databinding.FragmentQuizBinding
+import uz.khusinovs.iqchallenge.models.Quiz
+import uz.khusinovs.iqchallenge.utills.Pref
+import uz.khusinovs.iqchallenge.utills.viewBinding
 
 class QuizFragment : Fragment(R.layout.fragment_quiz) {
     private val binding by viewBinding { FragmentQuizBinding.bind(it) }
@@ -66,9 +66,9 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
     }
 
     private fun setupUI() = with(binding) {
-        finish.setOnClickListener {
-            findNavController().navigate(R.id.action_quizFragment_to_resultFragment)
-        }
+//        finish.setOnClickListener {
+//            findNavController().navigate(R.id.action_quizFragment_to_resultFragment)
+//        }
 
         answerA.setOnClickListener {
             selectedAnswer = answerA.text.toString()

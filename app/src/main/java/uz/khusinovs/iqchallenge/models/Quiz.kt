@@ -1,4 +1,4 @@
-package uz.khusinov.iqchallenge.models
+package uz.khusinovs.iqchallenge.models
 
 data class Quiz(
     var id: Int,

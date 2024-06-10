@@ -1,4 +1,4 @@
-package uz.khusinov.iqchallenge
+package uz.khusinovs.iqchallenge
 
 import org.junit.Test
 

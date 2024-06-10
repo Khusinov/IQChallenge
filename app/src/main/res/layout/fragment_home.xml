@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".ui.HomeFragment">
 
     <LinearLayout
@@ -176,11 +177,7 @@
                 app:srcCompat="@drawable/im_pro" />
         </RelativeLayout>
 
-
-
-
     </com.google.android.material.card.MaterialCardView>
-
 
 
 

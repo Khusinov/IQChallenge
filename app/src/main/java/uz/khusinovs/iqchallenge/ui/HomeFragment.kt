@@ -1,13 +1,13 @@
-package uz.khusinov.iqchallenge.ui
+package uz.khusinovs.iqchallenge.ui
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import uz.khusinov.iqchallenge.R
-import uz.khusinov.iqchallenge.databinding.FragmentHomeBinding
-import uz.khusinov.iqchallenge.utills.Pref
-import uz.khusinov.iqchallenge.utills.viewBinding
+import uz.khusinovs.iqchallenge.R
+import uz.khusinovs.iqchallenge.databinding.FragmentHomeBinding
+import uz.khusinovs.iqchallenge.utills.Pref
+import uz.khusinovs.iqchallenge.utills.viewBinding
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
     private val binding by viewBinding { FragmentHomeBinding.bind(it) }

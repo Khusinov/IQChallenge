@@ -62,7 +62,6 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/righteous"
                 android:includeFontPadding="false"
-                android:text="@string/iq"
                 android:textColor="@color/black"
                 android:textSize="64sp" />
 
@@ -80,7 +79,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/righteous"
-                android:text="@string/time_text"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 

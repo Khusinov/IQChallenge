@@ -1,4 +1,4 @@
-package uz.khusinov.iqchallenge.ui
+package uz.khusinovs.iqchallenge.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -6,11 +6,11 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.firestore
-import uz.khusinov.iqchallenge.R
-import uz.khusinov.iqchallenge.adapters.RatingAdapter
-import uz.khusinov.iqchallenge.databinding.FragmentLeaderBoardBinding
-import uz.khusinov.iqchallenge.models.Rating
-import uz.khusinov.iqchallenge.utills.viewBinding
+import uz.khusinovs.iqchallenge.R
+import uz.khusinovs.iqchallenge.adapters.RatingAdapter
+import uz.khusinovs.iqchallenge.databinding.FragmentLeaderBoardBinding
+import uz.khusinovs.iqchallenge.models.Rating
+import uz.khusinovs.iqchallenge.utills.viewBinding
 
 class LeaderBoardFragment : Fragment(R.layout.fragment_leader_board) {
     private val binding by viewBinding { FragmentLeaderBoardBinding.bind(it) }
@@ -44,9 +44,12 @@ class LeaderBoardFragment : Fragment(R.layout.fragment_leader_board) {
 
                 val userGroups = ratings.groupBy { it.id }
 
+
                 val userListWithMaxRate = userGroups.map { (_, userList) ->
                     userList.maxByOrNull { it.rate }
                 }.filterNotNull()
+
+
 
 //                ratings.sortByDescending { it.rate }
 //
@@ -63,7 +66,7 @@ class LeaderBoardFragment : Fragment(R.layout.fragment_leader_board) {
 //                    }
 //                }
 
-                adapter.submitList(userListWithMaxRate.reversed())
+                adapter.submitList(userListWithMaxRate)
             }
             .addOnFailureListener { e ->
                 Log.w("TAG", "Error adding document", e)

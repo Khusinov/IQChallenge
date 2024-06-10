@@ -1,4 +1,4 @@
-package uz.khusinov.iqchallenge.ui
+package uz.khusinovs.iqchallenge.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -7,10 +7,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import uz.khusinov.iqchallenge.R
-import uz.khusinov.iqchallenge.databinding.FragmentProfileBinding
-import uz.khusinov.iqchallenge.utills.Pref
-import uz.khusinov.iqchallenge.utills.viewBinding
+import uz.khusinovs.iqchallenge.R
+import uz.khusinovs.iqchallenge.databinding.FragmentProfileBinding
+import uz.khusinovs.iqchallenge.utills.Pref
+import uz.khusinovs.iqchallenge.utills.viewBinding
 
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {

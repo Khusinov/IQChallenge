@@ -1,4 +1,4 @@
-package uz.khusinov.iqchallenge.utills
+package uz.khusinovs.iqchallenge.utills
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
